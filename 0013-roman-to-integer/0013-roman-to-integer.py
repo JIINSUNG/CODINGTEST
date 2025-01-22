@@ -9,6 +9,7 @@ class Solution:
         roman = {
             'I' : 1,
             'IV' : 4,
+            'IX' : 9,
             'V' : 5,
             'X' : 10,
             'XL' : 40,
@@ -25,7 +26,7 @@ class Solution:
         i = 0
         while i < n: 
             if s[i] in ['I', 'X','C']:
-                if s[i:i+2] in ['IV','XL','XC','CD','CM']:
+                if s[i:i+2] in ['IV','IX','XL','XC','CD','CM']:
                     answer += roman[s[i:i+2]]
                     i += 1
                 else:
