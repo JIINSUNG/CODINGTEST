@@ -35,6 +35,3 @@ class Solution:
                 answer += roman[s[i]]
             i += 1
         return answer
-        # C가 나오면 CD, CM인지 체크
-        # X가 나오면 XL, XC인지 체크
-        # I가 나오면 IV 인지 체크
