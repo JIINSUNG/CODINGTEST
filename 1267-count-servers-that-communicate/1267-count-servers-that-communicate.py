@@ -1,26 +1,24 @@
 class Solution:
     def countServers(self, grid: List[List[int]]) -> int:
-        row = []
-        col = []
-        for i in range(len(grid)):
-            for j in range(len(grid[0])):
+        n = len(grid)
+        m = len(grid[0])
+
+        row = [0] * n
+        col = [0] * m
+
+
+        for i in range(n):
+            for j in range(m):
                 if grid[i][j] == 1:
-                    row.append(i)
-                    col.append(j)
+                    row[i] += 1
+                    col[j] += 1
+        
+        answer = 0
 
-        connects = [False] * len(row)
+        for i in range(n):
+            for j in range(m):
+                if grid[i][j] == 1 and (row[i] >= 2 or col[j] >= 2):
+                    answer += 1
+        return answer
 
-        for i in range(len(row)):
-            for j in range(i+1, len(row)):
-                if row[i] == row[j]:
-                    connects[i] = True
-                    connects[j] = True
-
-        previous = col[0]
-        for i in range(len(col)):
-            for j in range(i+1, len(col)):
-                if col[i] == col[j]:
-                    connects[i] = True
-                    connects[j] = True
-        return connects.count(True)
-
+        
