@@ -1,19 +1,18 @@
 class Solution:
     def longestPalindrome(self, s: str) -> int:
-        counter = Counter(s)
-        length = 0
-        odd_found = False
-
-        for value in counter.values():
+        count = Counter(s)
+        answer = 0
+        findOdd = False
+        for value in count.values():
             if value % 2 == 0:
-                length += value
+                answer += value
             else:
-                length += value - 1
-                if not odd_found:
-                    odd_found = True
-                    length += 1
-
-        return length
+                findOdd = True
+                answer += value-1
+        if findOdd:
+            return answer + 1 
+        else:
+            return answer
 
             
 
