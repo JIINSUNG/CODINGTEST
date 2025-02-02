@@ -11,11 +11,15 @@ class MyQueue:
         
 
     def pop(self) -> int:
-        return self.stack.popleft()
+        if self.stack:
+            return self.stack.popleft()
+        return -1
         
 
     def peek(self) -> int:
-        return self.stack[0]
+        if self.stack:
+            return self.stack[0]
+        return -1
 
         
 
