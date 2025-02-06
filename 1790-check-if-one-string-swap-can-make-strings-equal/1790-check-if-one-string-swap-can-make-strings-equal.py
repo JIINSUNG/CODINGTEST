@@ -6,19 +6,18 @@ class Solution:
         # 그렇지 않으면 false를 반환합니다.
         if s1 == s2:
             return True
-        
-        index = [] 
+
+        # 다른 문자의 인덱스를 저장
+        index = []
         for i in range(len(s1)):
             if s1[i] != s2[i]:
                 index.append(i)
-        
-        if len(index) > 2 or len(index) <= 1:
+
+        # 다른 문자가 2개가 아니면 False 반환
+        if len(index) != 2:
             return False
-        
-        s2 = list(s2)
-        print(s2)
-        s2[index[0]], s2[index[1]] = s2[index[1]], s2[index[0]]
-        s2 = ''.join(s2)
-        return s1 == s2
+
+        i, j = index
+        return s1[i] == s2[j] and s1[j] == s2[i]
         
             
