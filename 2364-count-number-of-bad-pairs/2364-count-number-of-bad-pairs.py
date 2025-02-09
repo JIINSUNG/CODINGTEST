@@ -1,12 +1,11 @@
 class Solution:
     def countBadPairs(self, nums: List[int]) -> int:
 
+        dictionary = defaultdict(int)
         for i in range(len(nums)):
             nums[i] = i - nums[i]
-        dictionary = defaultdict(int)
+            dictionary[nums[i]] += 1
 
-        for num in nums:
-            dictionary[num] += 1
         total = len(nums)
         cnt = 0
         for i in range(len(nums)):
@@ -14,15 +13,5 @@ class Solution:
             total -= 1
             cnt += total - dictionary[nums[i]]
         return cnt
-
-    
-
-
-        
-
-        
-
-        
-
 
 
