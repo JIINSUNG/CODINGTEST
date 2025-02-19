@@ -1,8 +1,8 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        for i in range(len(s) // 3):
-            s = s.replace('abc', '')
+        if len(s) < 3: return False
+    
+        while s.find('abc') > -1:
+            s = s.replace('abc','',1)
         
-        if s:
-            return False
-        return True
+        return len(s) == 0
