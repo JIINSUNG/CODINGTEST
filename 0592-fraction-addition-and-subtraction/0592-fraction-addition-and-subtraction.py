@@ -6,29 +6,35 @@ class Solution:
         분자 = []
         분모 = []
         
-        "-1/2+1/2"
         isMinus = False
         분자차례 = True
+        digit = ''
+        
         for i in range(len(expression)):
+            if expression[i] in ['-', '+']: # 기호가 나오고, 부모 차례라면
+                if not 분자차례:
+                    분모.append(int(digit))
+                    digit = ''
+                    분자차례 = True
 
-            if expression[i] == '-':
-                isMinus = True
+                if expression[i] == '-':
+                    isMinus = True
+
             # 숫자야?
             elif expression[i].isdigit():
-                # 분자 차례인지 체크, 마이너스 기호 있는지 체크
-                if 분자차례:
-                    if isMinus:
-                        분자.append(-int(expression[i]))
-                        isMinus = False
-                    else:
-                        분자.append(int(expression[i]))
-                else:
-                    분모.append(int(expression[i]))
-                    분자차례 = True
+                digit += expression[i]
                 
             
             elif expression[i] == '/':
+                if isMinus:
+                    분자.append(-int(digit))
+                    isMinus = False
+                else:
+                    분자.append(int(digit))
+                digit = ''
                 분자차례 = False
+        if digit:
+            분모.append(int(digit))
                 
         분모copy = set(분모)
         lcm = 1
