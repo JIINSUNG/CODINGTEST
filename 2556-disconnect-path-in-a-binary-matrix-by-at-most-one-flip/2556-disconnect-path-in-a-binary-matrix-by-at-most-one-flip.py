@@ -22,6 +22,7 @@ class Solution:
         
         grid[0][0] = 1
         grid[n-1][m-1] = 1
+        print(grid)
         
         return not dfs(0, 0)
 
