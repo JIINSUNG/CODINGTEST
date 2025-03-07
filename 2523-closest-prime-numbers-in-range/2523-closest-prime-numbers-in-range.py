@@ -18,16 +18,22 @@ class Solution:
             if primes[i]:
                 for j in range(i*2, right+1, i):
                     primes[j] = False
+        before = -1
+
         for i in range(left, right+1):
+            # i가 소수 일때
             if primes[i]:
-                candidate.append(i)
+                if before == -1:
+                    before = i
+
+                else:
+                    if (i - before) < dist:
+                        dist = i - before
+                        answer[0] = before
+                        answer[1] = i
+                    before = i
 
 
-        for i in range(0, len(candidate)-1):
-            if candidate[i+1] - candidate[i] < dist:
-                dist = candidate[i+1] - candidate[i]
-                answer[0] = candidate[i]
-                answer[1] = candidate[i+1]
         return answer
 
 
