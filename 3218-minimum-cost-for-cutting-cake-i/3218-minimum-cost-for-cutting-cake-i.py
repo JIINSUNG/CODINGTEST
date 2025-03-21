@@ -30,16 +30,13 @@ class Solution:
         # 총 비용 초기화
         total_cost = 0
         
-        # 모든 절단을 처리할 때까지 반복
         while pq:
             cost, direction = heapq.heappop(pq)
             
-            if direction == 'h':
-                # 수평 절단
+            if direction == 'h' and h > 1:
                 total_cost += cost * v
                 h -= 1
-            else:
-                # 수직 절단
+            elif direction == 'v' and v > 1:
                 total_cost += cost * h
                 v -= 1
         
