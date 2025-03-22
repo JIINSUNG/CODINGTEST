@@ -18,7 +18,6 @@ class Solution:
 
             for key in graph.keys():
                 if ingredient in graph[key]:
-                    graph[key].remove(ingredient)
                     indegree[key]-= 1
                     if indegree[key] == 0:
                         answer.append(key)
