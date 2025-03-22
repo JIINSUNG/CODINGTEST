@@ -16,8 +16,8 @@ class Solution:
         while queue:
             ingredient = queue.popleft()
 
-            for key in graph.keys():
-                if ingredient in graph[key]:
+            for key,value in graph.items():
+                if ingredient in value:
                     indegree[key]-= 1
                     if indegree[key] == 0:
                         answer.append(key)
