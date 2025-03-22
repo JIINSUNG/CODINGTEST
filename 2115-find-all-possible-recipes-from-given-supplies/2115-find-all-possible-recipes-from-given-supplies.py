@@ -11,7 +11,6 @@ class Solution:
                 graph[ingredient].add(recipes[i])
             indegree[recipes[i]] = len(ingredients[i])
         
-        print(graph)
         for supply in supplies:
             queue.append(supply)
 
@@ -28,4 +27,3 @@ class Solution:
                 
 
 
-        # print(graph)
