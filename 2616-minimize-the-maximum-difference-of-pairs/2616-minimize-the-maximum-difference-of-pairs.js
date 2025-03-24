@@ -7,6 +7,7 @@ var minimizeMax = function(nums, p) {
 
     const n = nums.length
     nums.sort((a,b) => a-b)
+
     const can_make = (target) => {
         let pair = 0 
         let i = 0
@@ -29,7 +30,6 @@ var minimizeMax = function(nums, p) {
 
     let left = 0
     let right = nums[n-1] - nums[0]
-    console.log(right)
 
     while (left <= right){
         let mid = Math.floor((left + right) / 2)
