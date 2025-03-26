@@ -20,6 +20,6 @@ class Solution:
 
             return False
         
-        return is_can(0) or is_can/(1) 
+        return is_can(0) or is_can(1) 
             
 
