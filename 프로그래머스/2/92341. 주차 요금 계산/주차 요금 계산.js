@@ -1,10 +1,7 @@
 function solution(fees, records) {
     var answer = [];
     
-    const defaultTime = fees[0]
-    const defaultPrice = fees[1]
-    const unitTime = fees[2]
-    const unitPrice = fees[3]
+    const [defaultTime,defaultPrice,unitTime,unitPrice] = fees
     
     
     // 차량별 누적 주차시간 정보 
