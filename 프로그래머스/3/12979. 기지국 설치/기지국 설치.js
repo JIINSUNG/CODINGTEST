@@ -2,19 +2,27 @@
 
 function solution(n, stations, w) {
     let answer = 0;
-    let position = 1; 
-    for (let i = 0; i < stations.length; i++) {
-        let left = stations[i] - w; 
-        if (position < left) {
-            let gap = left - position;
-            answer += Math.ceil(gap / (2 * w + 1));
+    
+    // 현재 미커버중인 지역 중 가장 낮은 번호
+    let noCover = 1
+    
+    for(let i=0; i<stations.length; i++){
+        // 현재 커버중인 지역
+        const cover = stations[i]
+        
+        // 현재 중계기가 설치된 지역 왼쪽 중 가장 큰 번호
+        const largeCover = cover-w-1
+        
+        if(largeCover >= noCover){
+            answer += Math.ceil((largeCover - noCover + 1) / (2*w+1) )
         }
-        position = stations[i] + w + 1;
+        
+        noCover = stations[i] + w + 1
     }
-    // 마지막 커버 이후 남은 구간
-    if (position <= n) {
-        let gap = n - position + 1;
-        answer += Math.ceil(gap / (2 * w + 1));
+    
+    if (noCover <= n){
+        answer += Math.ceil((n - noCover + 1) / (2*w+1))
     }
-    return answer;
+    
+    return answer    
 }

@@ -1,10 +1,10 @@
 # [level 3] 기지국 설치 - 12979 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12979?language=python3) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12979?language=javascript) 
 
 ### 성능 요약
 
-메모리: 9.59 MB, 시간: 2.04 ms
+메모리: 36.9 MB, 시간: 2.22 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2025년 10월 06일 13:18:48
+2025년 10월 08일 15:02:02
 
 ### 문제 설명
 
